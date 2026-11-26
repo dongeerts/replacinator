@@ -1,0 +1,17 @@
+{
+  "name": "replacinator",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A minimal Chrome extension to find and replace input values.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "dist/extension/"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "package:crx": "node scripts/package-crx.mjs"
+  }
+}
