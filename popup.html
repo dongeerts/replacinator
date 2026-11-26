@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Find and replace - Replacinator</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <p class="brand">Replacinator</p>
+      <h1>Find and replace</h1>
+      <p id="match-help">
+        Replaces the entire value of input fields on the current page.
+        Matching is case-sensitive.
+      </p>
+      <form id="replace-form">
+        <div class="field">
+          <label for="search">Find</label>
+          <input id="search" name="search" type="text" autocomplete="off"
+            autocorrect="off" autocapitalize="none" spellcheck="false"
+            aria-describedby="match-help search-help">
+          <p id="search-help">Leave empty to find empty input fields.</p>
+        </div>
+
+        <div class="field">
+          <label for="replacement">Replace with</label>
+          <input id="replacement" name="replacement" type="text" autocomplete="off"
+            autocorrect="off" autocapitalize="none" spellcheck="false"
+            aria-describedby="replacement-help">
+          <p id="replacement-help">Leave empty to clear matching values.</p>
+        </div>
+
+        <button type="submit">Replace</button>
+      </form>
+      <p id="status" role="status" aria-atomic="true"></p>
+    </main>
+  </body>
+</html>
