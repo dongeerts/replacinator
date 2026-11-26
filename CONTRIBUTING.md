@@ -4,7 +4,7 @@ Small, focused contributions are welcome.
 
 ## Set up and run locally
 
-You need Git and Google Chrome. There are no dependencies to install.
+You need Git, Google Chrome and Node.js 22 or newer with npm. There are no npm dependencies to install; you do not need to run `npm install`. Contributors develop, test and submit pull requests; no release signing key is needed. Never request or distribute the release private key.
 
 1. Clone the repository and enter its directory:
 
@@ -29,32 +29,38 @@ Keep changes focused and follow the existing code style. User interface changes 
 
 ## Test
 
-There is no automated test suite, linter or build tooling configured yet. Test
-changes manually in Chrome on a regular web page using non-sensitive test data:
+There is currently no automated test suite. Test changes manually in Chrome on a regular web page using non-sensitive test data:
 
-1. Find an input's exact value and replace it. Check that matching inputs change,
-   non-matching inputs stay unchanged and the result count is correct.
+1. Find an input's exact value and replace it. Check that matching inputs change, non-matching inputs stay unchanged and the result count is correct.
 2. Check that password inputs remain unchanged and are not included in the count.
 3. Try a value with no matches and submit with both fields empty; check the feedback.
-4. Try replacing a constrained input, such as a number field, with an invalid
-   value; check that it is skipped and reported.
-5. Open the popup on a `chrome://` page and try a replacement; check that an error
-   appears and the submit button becomes available again.
-6. Use only the keyboard to navigate, submit and dismiss feedback. Check visible
-   focus and that feedback is announced by a screen reader for interface changes.
+4. Try replacing a constrained input, such as a number field, with an invalid value; check that it is skipped and reported.
+5. Open the popup on a `chrome://` page and try a replacement; check that an error appears and the submit button becomes available again.
+6. Use only the keyboard to navigate, submit and dismiss feedback. Check visible focus and that feedback is announced by a screen reader for interface changes.
 
 Include the checks you performed in your pull request.
 
 ## Build and package
 
-No build step is needed: Chrome loads the source files directly. If you need a
-ZIP package, run this from the repository root with the `zip` utility installed:
+Chrome can load the source directory directly for development. Run packaging commands from the repository root.
+
+### Build and test locally (all contributors)
 
 ```sh
-zip -r replacinator.zip manifest.json popup.html popup.css popup.js static
+npm run build
 ```
 
-Do not include the generated ZIP in your pull request.
+Each build creates a clean `dist/extension/` containing only:
+
+- `manifest.json`
+- `popup.html`, `popup.css` and `popup.js`
+- `static/icons/icon16.png`, `static/icons/icon32.png`, `static/icons/icon48.png` and `static/icons/icon128.png`
+
+For local testing, use **Load unpacked** on `chrome://extensions` and choose `dist/extension`. No signing key is needed.
+
+### Release policy (owner only)
+
+Only the repository owner packages, publishes and distributes releases, after reviewing and merging changes. Only the owner manages and uses the release private key.
 
 ## Report bugs and request features
 

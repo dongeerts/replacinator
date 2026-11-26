@@ -1,0 +1,8 @@
+/dist/
+/*.zip
+*.crx
+*.pem
+*.key
+*.p12
+*.pfx
+node_modules/
