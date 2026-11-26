@@ -2,10 +2,10 @@
   "manifest_version": 3,
   "name": "Replacinator",
   "version": "1.0.0",
-  "description": "Replace exact matching values in input fields on the current page.",
+  "description": "Easily find and replace values in input fields on the current web page.",
   "permissions": ["activeTab", "scripting"],
   "action": {
-    "default_title": "Find and replace",
+    "default_title": "Replacinator 🤖 — Find & replace",
     "default_popup": "popup.html"
   },
   "icons": {

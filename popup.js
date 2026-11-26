@@ -1,12 +1,19 @@
+// Chrome serializes this function for injection; it cannot use popup-scoped helpers.
 function replaceInputs(search, replacement) {
   let replaced = 0;
   let skipped = 0;
 
   for (const input of document.querySelectorAll("input")) {
+    // Check the type before reading .value so passwords are never accessed.
+    if (input.type === "password") {
+      continue;
+    }
+
     if (input.value !== search) {
       continue;
     }
 
+    // Browsers allow clearing file inputs, but reject assigning a non-empty value.
     if (input.type === "file" && replacement !== "") {
       skipped++;
       continue;
@@ -21,6 +28,7 @@ function replaceInputs(search, replacement) {
       continue;
     }
 
+    // Assigning .value does not emit events; notify the page's listeners explicitly.
     input.dispatchEvent(new Event("input", { bubbles: true }));
     input.dispatchEvent(new Event("change", { bubbles: true }));
     replaced++;
@@ -69,6 +77,7 @@ function showFeedback(message, variant = "") {
 }
 
 dismissButton.addEventListener("click", () => {
+  // Hiding the dismiss button must not strand keyboard focus on a hidden element.
   const restoreFocus = document.activeElement === dismissButton;
   showFeedback("");
 
