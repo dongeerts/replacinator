@@ -14,7 +14,7 @@ The extension currently supports the light theme only.
 
 Watch Replacinator correct a fruit catalog's weight units from `kilogram` to `gram`.
 
-![Replacinator demo: replacing kilogram with gram in the fruit catalog's unit fields.](static/github/video.gif)
+https://github.com/user-attachments/assets/473b93fc-79e8-4389-b6b4-b2ce0676141a
 
 ## Contributing
 
