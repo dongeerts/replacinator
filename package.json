@@ -12,6 +12,13 @@
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
-    "package:crx": "node scripts/package-crx.mjs"
-  }
+    "package:crx": "node scripts/package-crx.mjs",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0"
+  },
+  "packageManager": "pnpm@11.24.0"
 }

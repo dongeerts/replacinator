@@ -4,7 +4,7 @@ Small, focused contributions are welcome.
 
 ## Set up and run locally
 
-You need Git, Google Chrome and Node.js 22 or newer with npm. There are no npm dependencies to install; you do not need to run `npm install`. Contributors develop, test and submit pull requests; no release signing key is needed. Never request or distribute the release private key.
+You need Git, Google Chrome and Node.js 24 or newer with pnpm. The extension itself has no runtime dependencies; run `pnpm install` only if you want to lint. Contributors develop, test and submit pull requests; no release signing key is needed. Never request or distribute the release private key.
 
 1. Clone the repository and enter its directory:
 
@@ -26,6 +26,16 @@ Edit `popup.html`, `popup.css` and `popup.js` for the popup and replacement logi
 After making changes, reload the extension on `chrome://extensions`, then close and reopen the popup.
 
 Keep changes focused and follow the existing code style. User interface changes must meet WCAG 2.2 AA: preserve labels, keyboard access, visible focus, sufficient contrast and accessible feedback messages.
+
+## Lint
+
+The project uses ESLint. Install the development dependencies once with `pnpm install`, then run the linter:
+
+```sh
+pnpm lint
+```
+
+Fix all reported problems before opening a pull request. The same check runs on every pull request and must pass before merging into `main`.
 
 ## Test
 
