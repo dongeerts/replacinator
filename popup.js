@@ -40,7 +40,7 @@ function replaceInputs(search, replacement) {
 const form = document.getElementById("replace-form");
 const searchInput = document.getElementById("search");
 const replacementInput = document.getElementById("replacement");
-const status = document.getElementById("status");
+const statusElement = document.getElementById("status");
 const feedback = document.getElementById("feedback");
 const feedbackIcons = feedback.querySelectorAll(".alert-icon");
 const dismissButton = document.getElementById("dismiss-message");
@@ -69,7 +69,7 @@ function showFeedback(message, variant = "") {
   }
 
   dismissButton.hidden = variant === "";
-  status.textContent = message;
+  statusElement.textContent = message;
 
   if (variant !== "") {
     scrollToFeedback();
